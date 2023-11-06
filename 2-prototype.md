@@ -1,4 +1,5 @@
-Explain how prototypical inheritance works
+# Explain how prototypical inheritance works
+https://www.greatfrontend.com/questions/quiz/explain-how-prototypal-inheritance-works
 
 ## Initial Thoughts
 
@@ -100,3 +101,7 @@ dog.eat();
 https://stackoverflow.com/a/19640910
 
 Prototypes inheritace uses objecsts, instead of classes to inherit. Can create objects ex-nilhio. Out of thin air.
+
+https://davidwalsh.name/javascript-objects
+Delegation vs Inheritane
+

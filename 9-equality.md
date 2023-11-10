@@ -11,6 +11,24 @@
 - `Object.is()` does no type conversion, no special handling for `NaN` and `-0` and `+0
 - SameValueZero: number equality but `-0` and `+0` are equal, used in prototpyes like `Array.prototype.includes()`, Map and Set comparisons
 
+Falsy
+- ""
+- 0, -0
+- NaN
+- false
+- undefined
+
+Truthy
+- "foo"
+- 23
+- {a: 1}
+- [1, 3]
+- true
+- function
+- []
+
+memorize falsy...otherwise truthy
+
 Equality Table:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness#comparing_equality_methods
 

@@ -10,3 +10,6 @@ have a height and width property that affects could position the adjacent elemen
 ## Research
 
 https://developer.mozilla.org/en-US/docs/Glossary/Inline-level_content
+
+- inputs and spans are default `inline`
+- "flow" is how the elements are laid out

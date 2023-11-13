@@ -25,3 +25,6 @@ console.log(boundGetX()); // 81 gets from module scope
 
 ```
 
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind#creating_a_bound_function
+https://www.greatfrontend.com/questions/quiz/explain-function-prototype-bind
+

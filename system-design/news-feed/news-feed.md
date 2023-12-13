@@ -119,3 +119,26 @@ Response
 - Post tweet should be at top...with feed of posts at the bottom ...with pagination
 
 # After Review
+
+# Requirements
+- User and friends
+- Liking and reacting to feed posts
+- Creating and publishing new posts
+- commenting and sharing... extra
+- what kind of posts are supported?
+    - primarily texts and images
+- What kind of pagination ux for feed?
+    - infinite scrolling 
+- applicaition used on mobile device?
+
+
+# Architecture
+- Component Responibilities
+    - Server
+    - Controller
+    - Client Store
+    - Feed UI
+        - Feed Posts
+        - Post Composter (what you see is what you get WSYIWGY) editors for users to create new feed posts
+
+- Rendering Approach

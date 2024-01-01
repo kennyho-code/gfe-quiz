@@ -79,10 +79,87 @@ Search Page
   - From
   - To
   - number of travelers and rooms
-- Hits Controllers...hits endpoint with query params `/properties?location{$location}&from=${from}&to=${to}&rooms-${rooms}&travelers=${travelers}`
+  - `GET` `/locations?query=${query}`
+- Hits Controllers...hits endpoint with query params `GET` `/properties?location{$location}&from=${from}&to=${to}&rooms-${rooms}&travelers=${travelers}`
 - once submits... goes to Property details page
+
   - Controller that data in memory per page
   - Filter
   - List of Property Results with show more button
+  - pagination.... off set ....
+
+  ```
+  {
+    pagination: {
+      size: 10,
+      page: 2,
+      totalPages = 5;
+      totalResults = 50;
+
+    }
+
+    results [
+      property1,
+      property2,
+      ....
+    ]
+  }
+  - Payment Form
+    - Form
+    - ..whose checking in ...
+    - payment method form
+    ... form of forms..
+    - submit ... /payment ... with response body
+  ```
+
+```
+POST /payment
+    {
+      customer: {
+
+      },
+      protection: {
+
+      }
+      payment: {
+
+      }
+    }
+
+```
+
+with response of
+
+```
+{
+  ...details
+  confirmation number
+}
+
+```
+
+...goes to a new screen.
 
 # Optimizations
+
+- Search Locations
+  - history cache
+  - number of cities?.....
+  - show more?
+  - cache when backspacicng
+  - look to auto-complete feature
+- search button for GET /properties
+  - optimistic loading when hovering over search button
+  - loading information ...only above the fold
+    - images
+    - prices
+    - ....we need "list virtualization" ..this is dynamic
+  - filterating ...and other static ui's can be server side rendered
+  - pages with long results can use pagination..via offset
+  -
+- Payment form
+  - ....1 page with just bunch of input to reduce requests
+  - autofill ..for common fields.. like email..payment info...etc..
+  - server side rendering as it isn't dynamic
+- Confirmation form
+  - server side rendering...data comes from payment response...

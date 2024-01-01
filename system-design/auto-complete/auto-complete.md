@@ -176,4 +176,48 @@ Initial results
 
 Caching Strategy
 
--
+- space vs time
+- when to evict?...how often things are updated ...means how often they should be evicted
+- networy only vs cacche only
+- cache duration..time to live
+
+Performance
+
+- loading speed ... depends on client side caching
+- deobuncing/throttling ..prevent for overloading server
+- memory usuage --- purging cache when browser is idle or too much memmory being used
+- Virtualized list...only rendering what's in view....view only dom nodes when they are visible.
+
+User Experience
+
+- auto focus
+- handdle different states - loading, error, no network
+- handle long strings.... truncating or ellipsis .. or wrap
+
+Mobile Friendliness
+
+- result term should be tappable for user
+- dynamic number depending on window size
+- autocapitalize, autocomplete, autocorrect, spellcheck set to off
+
+Typos in search
+
+- Fuzzy search doing levenshtein distance
+
+Query results positioning
+
+- depending where it's most visible ... where is the input decides where are the results
+
+Accessibility
+
+- sematic html
+- ul li .... role="listbox" .. "role="option"
+- aria label for input
+- role="combobox" for input
+- aria-haspopup
+- aria-expanded
+- aria-autocomplete
+
+Keyboard Interaction
+
+- up and down arrows to get end of list

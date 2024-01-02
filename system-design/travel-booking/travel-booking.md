@@ -366,3 +366,78 @@ Make Reservation
 ```
 
 ## Optimizations and Deep Dives
+
+- SEO
+  - bookmarkable search results .. url leads to same results....
+  - readable urls => https://www.airbnb.com/san-francisco-ca/stays
+  - dynamic rendering ...bots vs real users
+- Internalizations
+  - dedicated pages translated in the supported languages
+  - make language and country selector promininent
+  - automatic transliation
+  - `<html lang="zn-cn"` to tell browser offer translation
+  - CSS
+    - `:lang()`pseudo classto change display
+    - right to left languages
+      - css logical properties
+      - html dir attribute
+      - css directions rtl
+    - text length in different languages
+    - do not concatenated translated strings
+    - do not put text in images
+    - colors perceived in different cultures
+
+Performance
+
+- Image caraousel
+- Image preloading/lazy loading
+  - initial image loaded
+  - 2nd image when user shows intent
+    - cursover hover over curosel
+    - focuses on next button
+    - image caraousel comes into view (mobile devices)
+    - 2nd image...3rd to 5th images preloaded
+    - ... n + 3 keeps loading
+- Responsive images
+- Image formats ..webp for images and SVGs for icons
+
+Code Split
+
+- load code above the fold
+- page/route-level code splitting to prevent big javascript bundles in SPA
+- Lazy load ui components (1) below the fold (2) elements that only appear after interaction
+
+Performance Monitoring
+
+- light house + web vitals for measurement
+- performance budgets on CI
+
+React-tips:
+
+- https://medium.com/airbnb-engineering/recent-web-performance-fixes-on-airbnb-listing-pages-6cd8d93df6f4
+- https://medium.com/expedia-group-tech/12-tips-to-improve-client-side-page-performance-88c7bec27933
+
+Bundling optimizations
+
+- module federation
+
+Virtual list
+
+- https://www.patterns.dev/posts/virtual-lists/
+
+Progressive Web apps
+
+- https://medium.com/booking-com-development/progressive-web-apps-with-service-workers-887e80abf9ef
+
+- Device Support
+- responsive images
+- device specific UI
+
+User experience
+
+- perserving search context by tabs or modal
+
+- Accessbility
+
+- Form optimizations
+- payment forms

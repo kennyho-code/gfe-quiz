@@ -164,11 +164,12 @@ with response of
 - Confirmation form
   - server side rendering...data comes from payment response...
 
-
 # Research
 
 ## Requirements
+
 Features
+
 - search and browse accomodation listings
 - view accomodiation details
 - make reserveation for accomodations
@@ -182,6 +183,7 @@ What Devices
 Users have to be signed in?
 
 Summary
+
 - SEO
 - Performance
 - Internationalization
@@ -189,6 +191,7 @@ Summary
 - similar to E-commerce
 
 ## Architecture
+
 - SSR is a must for SEO
 - SPA (single-page app) or MPA (multi-page-app)
 - SPA doesn't make sense cannot reuse the shell
@@ -199,8 +202,167 @@ Summary
 
 ## Data Model
 
+- ListingResults
+  - results[ListingItem]
+- ListinItem
+  - title
+  - price
+  - curreny
+  - image_urls
+  - amentities
 
+## Inerface Definition (API)
 
+1. Search
+2. Listing Details
+3. Reserve
 
+Search Accomodations
 
+- GET
+- /search
+- returns list of accomodations that matches the search query
+- Parameters
+  - size
+  - page
+  - guests
+  - country
+  - location
+  - date range
+  - amentities
 
+location
+
+1. center position + radius
+
+- free text search ...location server to geograpigic coords .. Geocoding
+- Geolocation/coorindates - map based uis
+
+2. boundary coordiations
+
+Date Range
+
+- array tuple => [2022-12-24, 2022-12-27]
+- object => `{check_in: '2022-12-24', check_out: '2022-12-27}`
+- query params
+
+Amentities
+
+- Object
+- query parameters
+
+sample response
+
+```
+{
+  // Pagination metadata.
+  "pagination": {
+    "size": 5,
+    "page": 2,
+    "total_pages": 15,
+    "total": 74
+  },
+  "results": [
+    {
+      "id": 561602, // Accommodation ID.
+      "title": "Great view in the Mission, 15 mins by bus downtown",
+      "images": [
+        "https://www.greathotels.com/img/1.jpg",
+        "https://www.greathotels.com/img/2.jpg",
+        "https://www.greathotels.com/img/3.jpg",
+        "https://www.greathotels.com/img/4.jpg"
+      ],
+      "rating": 4.82,
+      "coordinates": {
+        "latitude": 37.74403,
+        "longitude": -122.41755
+      },
+      "price": 200,
+      "currency": "USD"
+    }
+    // ... More accommodation results.
+  ]
+}
+```
+
+Page Numbers for pagination....infinite scroll vs offset-based pagination?
+
+Fetch Accomodation Details
+
+- GET
+- `accomodation/{accomodationId}`
+- Parameters
+  - accomdationId
+  - country
+
+```
+{
+  "id": 561602, // Accommodation ID.
+  "title": "Great view of Brannan Street, 15 mins by bus downtown. Bed and Breakfast provided!",
+  "images": [
+    "https://www.greathotels.com/img/1.jpg",
+    "https://www.greathotels.com/img/2.jpg",
+    "https://www.greathotels.com/img/3.jpg",
+    "https://www.greathotels.com/img/4.jpg"
+  ],
+  "rating": 4.82,
+  "coordinates": {
+    "latitude": 37.74403,
+    "longitude": -122.41755
+  },
+  "price": 200,
+  "currency": "USD",
+  "amenities": {
+    "breakfast_provided": true,
+    "internet": true,
+    "washer": true,
+    "dryer": false
+    // Any additional amenities details.
+  },
+  "house_rules": "...",
+  "contact_email": "..."
+  // Any additional details.
+}
+```
+
+Make Reservation
+
+- POST
+- /reserve
+- reserve an accomodation
+- Parameters
+  - accomodationId
+  - dates
+  - address_details
+  - payment_details
+
+```
+{
+  "id": 456, // Reservation ID.
+  "total_price": 400,
+  "currency": "USD",
+  "dates": {
+    "check_in": "2022-12-24",
+    "check_out": "2022-12-27"
+  },
+  "accommodation": {
+    "id": 561602,
+    "address_details": {
+      "country": "US",
+      "address": "888 Brannan Street",
+      "city": "San Francisco",
+      "zip": "94103",
+      "state": "CA",
+      // ... Other address fields.
+    },
+  }
+  "payment_details": {
+    // Only show the last 4 digits.
+    // We shouldn't be storing the credit card number
+    // unencrypted anyway.
+    "card_last_four_digits": "1234"
+  }
+}
+```
+
+## Optimizations and Deep Dives

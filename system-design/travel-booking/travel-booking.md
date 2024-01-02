@@ -163,3 +163,44 @@ with response of
   - server side rendering as it isn't dynamic
 - Confirmation form
   - server side rendering...data comes from payment response...
+
+
+# Research
+
+## Requirements
+Features
+- search and browse accomodation listings
+- view accomodiation details
+- make reserveation for accomodations
+
+Demographics
+
+Non-Functional requirements
+
+What Devices
+
+Users have to be signed in?
+
+Summary
+- SEO
+- Performance
+- Internationalization
+- Device support
+- similar to E-commerce
+
+## Architecture
+- SSR is a must for SEO
+- SPA (single-page app) or MPA (multi-page-app)
+- SPA doesn't make sense cannot reuse the shell
+- MPA might make sense as travel sites have very broad features
+- Frameworks essential for maintaining client side code
+- SSR for initial use... clientside after interaction (SSR with hydration) (use Next.js)
+- airbnb, booking, expedia, tripAdvisor uses SSR and React
+
+## Data Model
+
+
+
+
+
+

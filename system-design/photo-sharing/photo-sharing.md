@@ -161,3 +161,19 @@ Image {
 
 - News Feed
 - Image caraousel
+- Rendering images
+  - webP
+  - alt for machine learning
+  - srcset for loading based on screen size
+  - adaptive image loading based on network speed
+- Image editing - cropping and resizing with canvas
+- Filters
+  - sepia, huge-rotate, saturate via CSS classes
+  - html2cnvas
+- a11y
+  - screen readers
+  - image with alt description
+  - aria label
+  - keyboard support
+    - region
+    - tabindex="0"
